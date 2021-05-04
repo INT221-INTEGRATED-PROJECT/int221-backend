@@ -74,12 +74,12 @@ public class Products extends AuditModel {
         this.price = price;
     }
 
-    public Date getRelaeasrDate() {
+    public Date getReleaseDate() {
         return releaseDate;
     }
 
-    public void setRelaeasrDate(Date relaeasrDate) {
-        this.releaseDate = relaeasrDate;
+    public void setReleaseDate(Date releaseDate) {
+        this.releaseDate = releaseDate;
     }
 
     public int getWarranty() {
