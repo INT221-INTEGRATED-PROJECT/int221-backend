@@ -21,52 +21,60 @@ public class ProductsController {
 
     // Getmapping using vue views route ?
     //return "redirect ?
-    @GetMapping("/viewproducts")
-    public List<Products> getProductsList() {
-        return productsRepository.findAll();
+//    @GetMapping("/")
+//    public List<Products> getProductsList() {
+//        return productsRepository.findAll();
+//    }
+    @GetMapping("/")
+    public String welcome()
+    {
+        return "<html><body>"
+                + "<h1>WELCOME</h1>"
+                + "</body></html>";
     }
 
-    @GetMapping("/products/{id}")
-    public ResponseEntity<Products> getProductById(
-            @PathVariable(value = "id") Long productId) throws ResourceNotFoundException {
-        Products products = productsRepository.findById(productId).orElseThrow(() -> new ResourceNotFoundException("Can not find ::" + productId));
-        return ResponseEntity.ok().body(products);
-    }
+//
+//    @GetMapping("/products/{id}")
+//    public ResponseEntity<Products> getProductById(
+//            @PathVariable(value = "id") Long productId) throws ResourceNotFoundException {
+//        Products products = productsRepository.findById(productId).orElseThrow(() -> new ResourceNotFoundException("Can not find ::" + productId));
+//        return ResponseEntity.ok().body(products);
+//    }
 
-    @PostMapping("/products")
-    public Products createProducts(@Validated @RequestBody Products products) {
-        return productsRepository.save(products);
-    }
-
-    @PutMapping("/products/{id}")
-    public ResponseEntity<Products> updateProduct(
-            @PathVariable(value = "id") Long productId,
-            @Validated @RequestBody Products productDetails) throws ResourceNotFoundException {
-        Products products = productsRepository.findById(productId).orElseThrow(
-                () -> new ResourceNotFoundException("Products not found ::" + productId)
-        );
-        products.setProductName(productDetails.getProductName());
-        products.setPrice((productDetails.getPrice()));
-        products.setReleaseDate(productDetails.getReleaseDate());
-        products.setWarranty(productDetails.getWarranty());
-        products.setDescription(productDetails.getDescription());
-        products.setImg(productDetails.getImg());
-        final Products updatedProduct = productsRepository.save(products);
-        return ResponseEntity.ok(updatedProduct);
-
-    }
-
-    @DeleteMapping("/products/{id}")
-    public Map<String, Boolean> deleteProduct(
-            @PathVariable(value = "id") Long productId) throws ResourceNotFoundException {
-        Products product = productsRepository.findById(productId).orElseThrow(
-                () -> new ResourceNotFoundException("Product not found ::" + productId));
-        productsRepository.delete(product);
-        Map<String, Boolean> response = new HashMap<>();
-        response.put("delete", Boolean.TRUE);
-        return response;
-
-    }
+//    @PostMapping("/products")
+//    public Products createProducts(@Validated @RequestBody Products products) {
+//        return productsRepository.save(products);
+//    }
+//
+//    @PutMapping("/products/{id}")
+//    public ResponseEntity<Products> updateProduct(
+//            @PathVariable(value = "id") Long productId,
+//            @Validated @RequestBody Products productDetails) throws ResourceNotFoundException {
+//        Products products = productsRepository.findById(productId).orElseThrow(
+//                () -> new ResourceNotFoundException("Products not found ::" + productId)
+//        );
+//        products.setProductName(productDetails.getProductName());
+//        products.setPrice((productDetails.getPrice()));
+//        products.setReleaseDate(productDetails.getReleaseDate());
+//        products.setWarranty(productDetails.getWarranty());
+//        products.setDescription(productDetails.getDescription());
+//        products.setImg(productDetails.getImg());
+//        final Products updatedProduct = productsRepository.save(products);
+//        return ResponseEntity.ok(updatedProduct);
+//
+//    }
+//
+//    @DeleteMapping("/products/{id}")
+//    public Map<String, Boolean> deleteProduct(
+//            @PathVariable(value = "id") Long productId) throws ResourceNotFoundException {
+//        Products product = productsRepository.findById(productId).orElseThrow(
+//                () -> new ResourceNotFoundException("Product not found ::" + productId));
+//        productsRepository.delete(product);
+//        Map<String, Boolean> response = new HashMap<>();
+//        response.put("delete", Boolean.TRUE);
+//        return response;
+//
+//    }
 
 
 }

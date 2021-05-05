@@ -20,7 +20,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="products")
 public class Products extends AuditModel {
-     @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long productId;
      @Column(nullable = false)

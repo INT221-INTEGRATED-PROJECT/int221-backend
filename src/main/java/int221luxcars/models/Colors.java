@@ -3,14 +3,14 @@ package int221luxcars.models;
 import javax.persistence.*;
 
 @Entity
-//@Table(name="colors")
+@Table(name="colors")
 public class Colors extends AuditModel {
     private @Id @GeneratedValue(strategy = GenerationType.AUTO)
     int colorCode;
     private String hexcode;
-//    @ManyToOne
-//    @JoinColumn(name="product_id")
-//    private Products products;
+    @ManyToOne
+    @JoinColumn(name="product_id")
+    private Products products;
     public Colors() {
     }
 
@@ -35,12 +35,12 @@ public class Colors extends AuditModel {
         this.hexcode = hexcode;
     }
 
-//    public Products getProducts(){
-//        return products;
-//    }
-//    public void setProducts(Products products){
-//        this.products=products;
-//    }
+    public Products getProducts(){
+        return products;
+    }
+    public void setProducts(Products products){
+        this.products=products;
+    }
 
     @Override
     public String toString() {
