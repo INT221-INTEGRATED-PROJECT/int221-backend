@@ -18,24 +18,24 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-//@Table(name="products")
+@Table(name="products")
 public class Products extends AuditModel {
-    private @Id
+     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long productId;
-    private @Column(nullable = false)
+     @Column(nullable = false)
     String productName;
-    private @Column(nullable = false)
+     @Column(nullable = false)
     double price;
-    private @Column(nullable = false)
+    @Column(nullable = false)
     Date releaseDate;
-    private @Column(nullable = false)
+     @Column(nullable = false)
     int warranty;
-    private @Column(nullable = false)
+     @Column(nullable = false)
     String description;
-    private String img;
+    String img;
     @OneToMany(mappedBy = "colors", cascade = {CascadeType.ALL})
-    private List<Colors> colors;
+    List<Colors> colors;
 
     public Products() {
     }
