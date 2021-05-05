@@ -6,10 +6,10 @@ import javax.persistence.*;
 @Table(name="colors")
 public class Colors extends AuditModel {
     private @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    int colorCode;
-    private String hexcode;
+    @Column(nullable = false) int colorCode;
+    @Column(nullable = false) private String hexcode;
     @ManyToOne
-    @JoinColumn(name="product_id")
+    @JoinColumn(name="productId")
     private Products products;
     public Colors() {
     }

@@ -1,19 +1,20 @@
 package int221luxcars.models;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class Brands  extends  AuditModel{
-    private @Id @GeneratedValue int brandId;
+@Table(name = "brands")
+public class Brands extends AuditModel {
+    @Id
+    @GeneratedValue
+    private int brandId;
+    @Column(nullable = false)
     private String brandName;
-    @OneToMany(mappedBy = "brands")
-    private Set<Products> products ;
+    @OneToMany(mappedBy = "products")
+    private Set<Products> products;
 
     public Brands() {
     }

@@ -18,24 +18,40 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="products")
+@Table(name = "products")
 public class Products extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long productId;
-     @Column(nullable = false)
+    @Column(nullable = false)
     String productName;
-     @Column(nullable = false)
+    @Column(nullable = false)
     double price;
     @Column(nullable = false)
     Date releaseDate;
-     @Column(nullable = false)
+    @Column(nullable = false)
     int warranty;
-     @Column(nullable = false)
+    @Column(nullable = false)
     String description;
     String img;
-    @OneToMany(mappedBy = "colors", cascade = {CascadeType.ALL})
-    List<Colors> colors;
+    //    @OneToMany(mappedBy = "colors", cascade = {CascadeType.ALL})
+//    List<Colors> colors;
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(name = "productcolors",
+            joinColumns = @JoinColumn(name = "productID"),
+            inverseJoinColumns = @JoinColumn(name = "colorCode")
+    )
+    private List<Colors> colors;
+    //
+//    @ManyToOne
+//    @JoinColumn(name="brandID")
+//    private Brands brandID;
+    @ManyToOne
+    @JoinColumn(name = "brandId", nullable = false)
+    private Brands brands;
 
     public Products() {
     }
@@ -105,7 +121,8 @@ public class Products extends AuditModel {
     public void setImg(String img) {
         this.img = img;
     }
-    public List <Colors> getColors(){
+
+    public List<Colors> getColors() {
         return colors;
     }
 
