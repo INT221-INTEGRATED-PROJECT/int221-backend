@@ -13,7 +13,7 @@ public class Brands extends AuditModel {
     private int brandId;
     @Column(nullable = false)
     private String brandName;
-    @OneToMany(mappedBy = "products")
+    @OneToMany(mappedBy = "brands")
     private Set<Products> products;
 
     public Brands() {
