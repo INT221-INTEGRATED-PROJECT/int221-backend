@@ -22,17 +22,18 @@ import javax.persistence.Table;
 public class Products extends AuditModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long productId;
+   private long productId;
     @Column(nullable = false)
-    String productName;
+    private String productName;
     @Column(nullable = false)
-    double price;
+    private double price;
     @Column(nullable = false)
-    Date releaseDate;
+    private Date releaseDate;
     @Column(nullable = false)
-    int warranty;
+    private int warranty;
     @Column(nullable = false)
-    String description;
+    private String description;
+    @Column(nullable = false)
     String img;
     //    @OneToMany(mappedBy = "colors", cascade = {CascadeType.ALL})
 //    List<Colors> colors;
