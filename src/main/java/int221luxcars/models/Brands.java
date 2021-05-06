@@ -7,11 +7,11 @@ import java.util.Set;
 
 @Entity
 @Table(name = "brands")
-public class Brands extends AuditModel {
+public class Brands  {
     @Id
-    @GeneratedValue
+    @Column(name="brandId")
     private int brandId;
-    @Column(nullable = false)
+    @Column(name="brandName")
     private String brandName;
     @OneToMany(mappedBy = "brands")
     private Set<Products> products;

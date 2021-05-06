@@ -4,19 +4,19 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="colors")
-public class Colors extends AuditModel {
+public class Colors  {
     private @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(nullable = false) int colorCode;
-    @Column(nullable = false) private String hexcode;
-    @ManyToOne
-    @JoinColumn(name="productId")
-    private Products products;
+    @Column(name="colorCode") int colorCode;
+    @Column(name="hexCode") private String hexCode;
+
+
+
     public Colors() {
     }
 
-    public Colors(int colorCode, String hexcode) {
+    public Colors(int colorCode, String hexCode) {
         this.colorCode = colorCode;
-        this.hexcode = hexcode;
+        this.hexCode = hexCode;
     }
 
     public int getColorCode() {
@@ -27,26 +27,26 @@ public class Colors extends AuditModel {
         this.colorCode = colorCode;
     }
 
-    public String getHexcode() {
-        return hexcode;
+    public String getHexCode() {
+        return hexCode;
     }
 
-    public void setHexcode(String hexcode) {
-        this.hexcode = hexcode;
+    public void setHexcode(String hexCode) {
+        this.hexCode = hexCode;
     }
 
-    public Products getProducts(){
-        return products;
-    }
-    public void setProducts(Products products){
-        this.products=products;
-    }
+//    public Products getProducts(){
+//        return products;
+//    }
+//    public void setProducts(Products products){
+//        this.products=products;
+//    }
 
     @Override
     public String toString() {
         return "Colors{" +
                 "colorCode=" + colorCode +
-                ", hexcode='" + hexcode + '\'' +
+                ", hexCode='" + hexCode + '\'' +
                 '}';
     }
 }
