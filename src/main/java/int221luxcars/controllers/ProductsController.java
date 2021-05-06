@@ -14,24 +14,25 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/products")
 public class ProductsController {
     @Autowired
     private ProductsRepository productsRepository;
 
     // Getmapping using vue views route ?
     //return "redirect ?
-//    @GetMapping("/")
-//    public List<Products> getProductsList() {
-//        return productsRepository.findAll();
-//    }
-    @GetMapping("/")
-    public String welcome()
-    {
-        return "<html><body>"
-                + "<h1>WELCOME</h1>"
-                + "</body></html>";
+    @GetMapping("/view")
+    public List<Products> getProductsList() {
+        return this.productsRepository.findAll();
     }
+
+
+
+//    @GetMapping("/products/{id}")
+//    public Products show(@PathVariable Long id){
+////        int productId = Integer.parseInt(id);
+//        return productsRepository.findById(id);
+//    }
 
 //
 //    @GetMapping("/products/{id}")
