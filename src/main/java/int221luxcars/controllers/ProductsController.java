@@ -21,17 +21,14 @@ public class ProductsController {
 
     // Getmapping using vue views route ?
     //return "redirect ?
-    @GetMapping("/view")
+    @GetMapping("/viewproducts")
     public List<Products> getProductsList() {
         return this.productsRepository.findAll();
     }
 
-
-
-//    @GetMapping("/products/{id}")
-//    public Products show(@PathVariable Long id){
-////        int productId = Integer.parseInt(id);
-//        return productsRepository.findById(id);
+//    @GetMapping("/viewproducts/{id}")
+//    public Products viewproducts(@PathVariable Long id){
+//        return this.productsRepository.findById(id);
 //    }
 
 //
