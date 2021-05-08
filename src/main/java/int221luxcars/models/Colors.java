@@ -1,12 +1,17 @@
 package int221luxcars.models;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
+@Getter
+@Setter
 @Entity
 @Table(name="colors")
 public class Colors  {
     private @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="colorCode") int colorCode;
+    @Column(name="colorCode") long colorCode;
     @Column(name="hexCode") private String hexCode;
 
 
@@ -19,21 +24,7 @@ public class Colors  {
         this.hexCode = hexCode;
     }
 
-    public int getColorCode() {
-        return colorCode;
-    }
 
-    public void setColorCode(int colorCode) {
-        this.colorCode = colorCode;
-    }
-
-    public String getHexCode() {
-        return hexCode;
-    }
-
-    public void setHexcode(String hexCode) {
-        this.hexCode = hexCode;
-    }
 
 //    public Products getProducts(){
 //        return products;
@@ -42,11 +33,5 @@ public class Colors  {
 //        this.products=products;
 //    }
 
-    @Override
-    public String toString() {
-        return "Colors{" +
-                "colorCode=" + colorCode +
-                ", hexCode='" + hexCode + '\'' +
-                '}';
-    }
+
 }

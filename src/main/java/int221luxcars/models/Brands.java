@@ -1,10 +1,15 @@
 package int221luxcars.models;
 
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "brands")
 public class Brands  {
@@ -24,19 +29,5 @@ public class Brands  {
         this.brandName = brandName;
     }
 
-    public int getBrandId() {
-        return brandId;
-    }
 
-    public void setBrandId(int brandId) {
-        this.brandId = brandId;
-    }
-
-    public String getBrandName() {
-        return brandName;
-    }
-
-    public void setBrandName(String brandName) {
-        this.brandName = brandName;
-    }
 }
