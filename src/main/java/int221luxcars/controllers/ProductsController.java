@@ -15,6 +15,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/products")
+@CrossOrigin("*")
 public class ProductsController {
     @Autowired
     private ProductsRepository productsRepository;
@@ -33,6 +34,7 @@ public class ProductsController {
         Products product = productsRepository.findById(productId).orElseThrow(() -> new ResourceNotFoundException("Can not find ::" + productId));
         return ResponseEntity.ok().body(product);
     }
+
 
     @PostMapping("/add")
     public Products createProducts(@Validated @RequestBody Products products) {
@@ -54,6 +56,7 @@ public class ProductsController {
         products.setReleaseDate(productDetails.getReleaseDate());
         products.setWarranty(productDetails.getWarranty());
         products.setDescription(productDetails.getDescription());
+        products.setColors(productDetails.getColors());
         products.setBrands(productDetails.getBrands());
 //        products.setImage(productDetails.getImage());
         final Products updatedProduct = productsRepository.save(products);
@@ -67,6 +70,8 @@ public class ProductsController {
         Products product = productsRepository.findById(productId).orElseThrow(
                 () -> new ResourceNotFoundException("Product not found ::" + productId));
         productsRepository.delete(product);
+        ImagesController imgDelete = new ImagesController();
+        imgDelete.deleteImage(Long.toString(productId));
         Map<String, Boolean> response = new HashMap<>();
         response.put("delete", Boolean.TRUE);
         return response;
