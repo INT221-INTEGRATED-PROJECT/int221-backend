@@ -23,7 +23,7 @@ public class BrandsController {
      }
     @GetMapping("/view/{id}")
     public ResponseEntity<Brands> getBrandById(
-            @PathVariable(value = "id") Long brandId) throws ResourceNotFoundException {
+            @PathVariable(value = "id") long brandId) throws ResourceNotFoundException {
        Brands brand = brandsRepository.findById(brandId).orElseThrow(() -> new ResourceNotFoundException("Can not find ::" + brandId));
         return ResponseEntity.ok().body(brand);
     }

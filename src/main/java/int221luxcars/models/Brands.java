@@ -15,7 +15,7 @@ import java.util.Set;
 public class Brands  {
     @Id
     @Column(name="brandId")
-    private int brandId;
+    private long brandId;
     @Column(name="brandName")
     private String brandName;
 //    @OneToMany(mappedBy = "brands")
@@ -24,7 +24,7 @@ public class Brands  {
     public Brands() {
     }
 
-    public Brands(int brandId, String brandName) {
+    public Brands(long brandId, String brandName) {
         this.brandId = brandId;
         this.brandName = brandName;
     }
