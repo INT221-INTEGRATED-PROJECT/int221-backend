@@ -6,15 +6,13 @@ import int221luxcars.models.Products;
 import int221luxcars.repositories.ColorsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/colors")
+@CrossOrigin(origins = "*")
 public class ColorsController {
 
     @Autowired
