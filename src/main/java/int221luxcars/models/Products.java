@@ -58,7 +58,4 @@ public class Products  {
         return colors;
     }
 
-    public void setColors(List<Colors> colors) {
-        this.colors = colors;
-    }
 }

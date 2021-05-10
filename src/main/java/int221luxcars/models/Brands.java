@@ -18,8 +18,8 @@ public class Brands  {
     private int brandId;
     @Column(name="brandName")
     private String brandName;
-    @OneToMany(mappedBy = "brands")
-    private Set<Products> products;
+//    @OneToMany(mappedBy = "brands")
+//    private Set<Products> products;
 
     public Brands() {
     }
@@ -28,6 +28,4 @@ public class Brands  {
         this.brandId = brandId;
         this.brandName = brandName;
     }
-
-
 }

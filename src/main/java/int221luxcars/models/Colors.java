@@ -16,22 +16,5 @@ public class Colors  {
 
 
 
-    public Colors() {
-    }
-
-    public Colors(int colorCode, String hexCode) {
-        this.colorCode = colorCode;
-        this.hexCode = hexCode;
-    }
-
-
-
-//    public Products getProducts(){
-//        return products;
-//    }
-//    public void setProducts(Products products){
-//        this.products=products;
-//    }
-
 
 }
