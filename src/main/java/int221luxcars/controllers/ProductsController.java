@@ -58,7 +58,7 @@ public class ProductsController {
         products.setDescription(productDetails.getDescription());
         products.setColors(productDetails.getColors());
         products.setBrands(productDetails.getBrands());
-//        products.setImage(productDetails.getImage());
+        products.setImage(productDetails.getImage());
         final Products updatedProduct = productsRepository.save(products);
         return ResponseEntity.ok(updatedProduct);
 
