@@ -1,5 +1,9 @@
+networks:
+    default:
+      external:
+          name: int221-network
 services:
-  backend:
+    backend:
     build: .
     image: ghcr.io/int221-integrated-project/int221-backend:dev
     environment:
@@ -7,7 +11,3 @@ services:
     volumes:
       - ~/Images:/public/images
 
-networks:
-  default:
-    external:
-      name: int221-network
