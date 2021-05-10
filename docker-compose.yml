@@ -1,11 +1,12 @@
+version: '2'
 networks:
-    default:
-      external:
-          name: int221-network
+  default:
+    external:
+      name: int221-network
 services:
-    backend:
+  backend:
     build: .
-    image: ghcr.io/int221-integrated-project/int221-backend:dev
+    image: ghcr.io/int221-integrated-project/int221-backend
     environment:
       SERVICE_VERSION: v1
     volumes:
