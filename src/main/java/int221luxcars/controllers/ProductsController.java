@@ -27,7 +27,6 @@ public class ProductsController {
     }
 
 
-
     @GetMapping("/view/{id}")
     public ResponseEntity<Products> getProductById(
             @PathVariable(value = "id") Long productId) throws ResourceNotFoundException {
@@ -36,8 +35,10 @@ public class ProductsController {
     }
 
 
+
+
     @PostMapping("/add")
-    public Products createProducts(@Validated @RequestBody Products products) {
+    public Products createProducts( @RequestBody Products products) {
         return this.productsRepository.save(products);
     }
 
@@ -71,7 +72,7 @@ public class ProductsController {
                 () -> new ResourceNotFoundException("Product not found ::" + productId));
         productsRepository.delete(product);
         ImagesController imgDelete = new ImagesController();
-        imgDelete.deleteImage(Long.toString(productId));
+        imgDelete.deleteImage(product.getImage());
         Map<String, Boolean> response = new HashMap<>();
         response.put("delete", Boolean.TRUE);
         return response;
