@@ -1,5 +1,5 @@
 FROM maven:3.6.0-jdk-11-slim AS build
-WORKDIR /backend
+WORKDIR /luxcars
 COPY src ./src
 COPY pom.xml ./
 RUN mvn clean install
