@@ -1,0 +1,13 @@
+services:
+  backend:
+    build: .
+    image: ghcr.io/int221-integrated-project/int221-backend:dev
+    environment:
+      SERVICE_VERSION: v1
+    volumes:
+      - ~/Images:/public/images
+
+networks:
+  default:
+    external:
+      name: int221-network
