@@ -51,6 +51,21 @@ public class Products  {
     )
     private List<Colors> colors;
 
+    public Products() {
+    }
+
+    public Products(long productId, String productName, double price, Date releaseDate, int warranty, String description, String image, List<Colors> colors, Brands brands) {
+        this.productId = productId;
+        this.productName = productName;
+        this.price = price;
+        this.releaseDate = releaseDate;
+        this.warranty = warranty;
+        this.description = description;
+        this.image = image;
+        this.colors = colors;
+        this.brands = brands;
+    }
+
     @ManyToOne
     @JoinColumn(name = "brandId", nullable = false)
     private Brands brands;
