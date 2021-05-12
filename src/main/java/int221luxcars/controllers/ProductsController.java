@@ -39,8 +39,7 @@ public class ProductsController {
 
     @PostMapping("/add")
     public Products createProducts( @RequestBody Products products) {
-        productsRepository.save(products);
-        return products;
+        return productsRepository.save(products);
     }
 
 
@@ -55,7 +54,7 @@ public class ProductsController {
         );
         products.setProductName(productDetails.getProductName());
         products.setPrice((productDetails.getPrice()));
-        products.setReleaseDate(productDetails.getReleaseDate());
+        products.setReleasedDate(productDetails.getReleasedDate());
         products.setWarranty(productDetails.getWarranty());
         products.setDescription(productDetails.getDescription());
         products.setColors(productDetails.getColors());

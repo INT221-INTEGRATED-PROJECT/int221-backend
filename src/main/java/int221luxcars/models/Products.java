@@ -33,7 +33,7 @@ public class Products  {
     @Column(name="price")
     private double price;
     @Column(name="releaseDate")
-    private Date releaseDate;
+    private Date releasedDate;
     @Column(name="warranty")
     private int warranty;
     @Column(name="description")
@@ -54,11 +54,11 @@ public class Products  {
     public Products() {
     }
 
-    public Products(long productId, String productName, double price, Date releaseDate, int warranty, String description, String image, List<Colors> colors, Brands brands) {
+    public Products(long productId, String productName, double price, Date releasedDate, int warranty, String description, String image, List<Colors> colors, Brands brands) {
         this.productId = productId;
         this.productName = productName;
         this.price = price;
-        this.releaseDate = releaseDate;
+        this.releasedDate = releasedDate;
         this.warranty = warranty;
         this.description = description;
         this.image = image;
