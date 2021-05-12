@@ -46,7 +46,7 @@ public class Products  {
             CascadeType.MERGE
     })
     @JoinTable(name = "productcolors",
-            joinColumns = @JoinColumn(name = "productID"),
+            joinColumns = @JoinColumn(name = "productId"),
             inverseJoinColumns = @JoinColumn(name = "colorCode")
     )
     private List<Colors> colors;
